@@ -1,2 +1,2 @@
 # tsviewer
-View tsk file line by line with header in json/dict mode
+view tsv file line by line with header in json/dict mode
