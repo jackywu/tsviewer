@@ -41,8 +41,10 @@ public class App
         options.addOption("f", "file", true, "file to read");
         options.addOption("l", "line", true, "show X line");
         options.addOption("c", "column", true, "only show column x,y,z");
+        options.addOption("t", "tab", false, "use tab as separator");
 
         String file = null;
+        String separator = "\\s";
         CommandLine cli = null;
         String[] column = null;
         int line = 3;
@@ -63,6 +65,10 @@ public class App
             // System.err.println("missing arg -f/--file");
             formatter.printHelp("TSVViewer", options, true);
             System.exit(1);
+        }
+
+        if (cli.hasOption("t")) {
+            separator = "\\t";
         }
 
         if (cli.hasOption("l")) {
@@ -95,13 +101,12 @@ public class App
             it = FileUtils.lineIterator(new File(file), "UTF-8");
             while (it.hasNext()) {
                 final String row = it.nextLine();
-                segment = row.split("\\s", -1);
+                segment = row.split(separator, -1);
                 num++;
                 if (num == 1) {
                     header = segment;
                 } else {
                     var map = App.zip(header, segment);
-                    System.out.println(Arrays.toString(column));
                     if (column != null) {
                         map = App.filter(map, column);
                     }
