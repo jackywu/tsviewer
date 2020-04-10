@@ -5,6 +5,7 @@
 import argparse
 import pprint
 import pathlib
+import json
 
 
 def parse_args():
@@ -59,7 +60,7 @@ def main():
                 output = dict(zip(header, segment))
                 if column is not None:
                     output = filter_map(output, column)
-                pprint.pprint(output)
+                pprint.pprint(json.dumps(output))
             if num == (args.line + 1):
                 return
 

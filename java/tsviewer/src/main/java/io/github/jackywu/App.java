@@ -41,7 +41,7 @@ public class App
         options.addOption("f", "file", true, "file to read");
         options.addOption("l", "line", true, "show X line");
         options.addOption("c", "column", true, "only show column x,y,z");
-        options.addOption("t", "tab", false, "use tab as separator");
+        options.addOption("t", "tab", false, "use tab as separator, default is space");
 
         String file = null;
         String separator = "\\s";

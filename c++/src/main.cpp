@@ -108,15 +108,14 @@ int main(int argc, char** argv)
                     header.begin(), header.end(), row_vector.begin(),
                     inserter(row_map, row_map.begin()),
                     [] (string h, string e) {
-                    return make_pair(h, e);
-                    }
-                    );
+                        return make_pair(h, e);
+                    });
 
             if (!fields.empty()) {
                 std::copy_if(row_map.begin(), row_map.end(),
                         std::inserter(filted_map, filted_map.begin()),
                         [&fields](std::pair<string, string> pair){
-                        return std::count(fields.begin(), fields.end(), pair.first) > 0;
+                            return std::count(fields.begin(), fields.end(), pair.first) > 0;
                         });
                 printer.print(filted_map);
                 filted_map.clear();
