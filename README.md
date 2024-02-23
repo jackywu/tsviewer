@@ -2,7 +2,7 @@
 
 view tsv file line by line with header in json/dict mode
 
-This project have two program in Python3 and Java. And there is a demo tsv file in ./data directory.
+This project have several program in Python3, C++ and Java. And there is a demo tsv file in ./data directory.
 
 Usage of Python3 version:
 
@@ -42,5 +42,6 @@ Usage of Java version:
     }
 
 Usage of C++ version:
+
     ✗ xmake # build the source
     ✗ ./build/macosx/x86_64/release/tsviewer -l 2 -f data/data.tsv -c "Study_set,Genome_type"
